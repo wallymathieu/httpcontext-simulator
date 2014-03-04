@@ -15,3 +15,8 @@ package { "mono-devel":
     ensure => installed,
     require => [Exec["src mono-3.2"],Exec["apt-get update"]],
 }
+
+package { "nunit-console":
+    ensure => installed,
+    require => Package["mono-devel"],
+}
