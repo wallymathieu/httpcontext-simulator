@@ -6,10 +6,8 @@ namespace Http.TestLibrary
     /// <summary>
     /// Helper class to simplify common reflection tasks.
     /// </summary>
-    public sealed class ReflectionHelper
+    internal static class ReflectionHelper
     {
-        private ReflectionHelper() { }
-
         /// <summary>
         /// Returns the value of the private member specified.
         /// </summary>
