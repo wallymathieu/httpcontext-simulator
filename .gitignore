@@ -153,3 +153,6 @@ $RECYCLE.BIN/
 
 # vagrant
 .vagrant
+
+# xml file that results from running nunit console
+TestResult.xml
