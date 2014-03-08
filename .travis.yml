@@ -1,0 +1,11 @@
+language: java
+
+env:
+  global:
+    - EnableNuGetPackageRestore=false
+
+script: 
+  - sudo apt-get install mono-devel nunit-console -y
+  - bundle install 
+  - rake mono:install_packages
+  - rake mono:test
