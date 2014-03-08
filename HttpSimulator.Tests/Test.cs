@@ -59,6 +59,35 @@ namespace HttpSimulatorTests
                 Assert.AreEqual(new Uri("http://localhost/Test.aspx"), simulator.Context.Request.Url);
             }
         }
+        /// <summary>
+        /// Determines whether this instance [can simulate form post].
+        /// </summary>
+        [Test,Ignore("Does not work on mono")]
+        public void CanSimulateFormPostOnHttpContext()
+        {
+            using (var simulator = new HttpSimulator())
+            {
+                var form = new NameValueCollection();
+                form.Add("Test1", "Value1");
+                form.Add("Test2", "Value2");
+                simulator.SimulateRequest(new Uri("http://localhost/Test.aspx"), form);
+
+                Assert.AreEqual("Value1", HttpContext.Current.Request.Form["Test1"]);
+                Assert.AreEqual("Value2", HttpContext.Current.Request.Form["Test2"]);
+                Assert.AreEqual(new Uri("http://localhost/Test.aspx"), HttpContext.Current.Request.Url);
+            }
+
+            using (var simulator = new HttpSimulator())
+            {
+                simulator.SetFormVariable("Test1", "Value1")
+                  .SetFormVariable("Test2", "Value2")
+                  .SimulateRequest(new Uri("http://localhost/Test.aspx"));
+
+                Assert.AreEqual("Value1", HttpContext.Current.Request.Form["Test1"]);
+                Assert.AreEqual("Value2", HttpContext.Current.Request.Form["Test2"]);
+                Assert.AreEqual(new Uri("http://localhost/Test.aspx"), HttpContext.Current.Request.Url);
+            }
+        }
     }
 }
 

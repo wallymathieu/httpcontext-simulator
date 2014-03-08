@@ -6,21 +6,15 @@ using System.Web;
 
 namespace Http.TestLibrary
 {
-    class HttpContext2:HttpContextBase
+    class HttpContextWrapper:HttpContextBase
     {
         private readonly HttpRequestBase _workerRequest;
         private readonly HttpSessionStateBase _fakeHttpSessionState;
-        private HttpApplicationStateBase _application;
 
-        public HttpContext2(HttpRequestBase workerRequest, HttpSessionStateBase fakeHttpSessionState)
+        public HttpContextWrapper(HttpRequestBase workerRequest, HttpSessionStateBase fakeHttpSessionState)
         {
             _workerRequest = workerRequest;
             _fakeHttpSessionState = fakeHttpSessionState;
-        }
-
-        public override HttpApplicationStateBase Application
-        {
-            get { return _application; }
         }
 
         public override HttpSessionStateBase Session
