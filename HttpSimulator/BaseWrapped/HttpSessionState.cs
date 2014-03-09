@@ -4,7 +4,7 @@ using System.Web.SessionState;
 
 namespace Http.TestLibrary.BaseWrapped
 {
-    public class HttpSessionState : HttpSessionStateBase
+    internal class HttpSessionState : HttpSessionStateBase
     {
         private HttpSimulator.FakeHttpSessionState session;
 

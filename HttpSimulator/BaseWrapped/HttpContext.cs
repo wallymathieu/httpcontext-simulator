@@ -2,7 +2,7 @@
 
 namespace Http.TestLibrary.BaseWrapped
 {
-    class HttpContext:HttpContextBase
+    internal class HttpContext:HttpContextBase
     {
         private readonly HttpRequestBase _workerRequest;
         private readonly HttpSessionStateBase _fakeHttpSessionState;

@@ -4,7 +4,7 @@ using System.Web;
 
 namespace Http.TestLibrary.BaseWrapped
 {
-    public class SimulatedHttpRequest:HttpRequestBase
+    internal class SimulatedHttpRequest:HttpRequestBase
     {
         private readonly TestLibrary.SimulatedHttpRequest _request;
 
