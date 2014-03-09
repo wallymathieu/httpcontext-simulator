@@ -1,7 +1,7 @@
 require 'albacore'
 
 namespace :mono do
-  desc "build isop on mono"
+  desc "build httpsimulator on mono"
   xbuild :build do |msb|
     msb.properties :configuration => :Debug
     msb.targets :rebuild
